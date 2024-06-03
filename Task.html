@@ -1,0 +1,43 @@
+!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Khyath </title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <ul>
+                <li><a href="https://khyath.com/">Home</a></li>
+                <li><a href="https://khyath.com/about/">About</a></li>
+                <li><a href="https://khyath.com/contact/">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="login-container">
+            <h2>Hi User!</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <span id="togglePassword" class="toggle-password"></span> 
+
+                <button type="submit">Login</button>
+            </form>
+            <div id="error-message" class="error-message"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>2024 &copy;Khyath Tech Media Private Limited</p>
+    </footer>
+
+    <script src="Scripts.js"></script>
+</body>
+</html>
