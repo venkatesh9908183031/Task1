@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .table-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .table thead th {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-primary, .btn-danger {
+            width: 150px;
+        }
+        .btn-primary, .btn-secondary {
+            margin-top: 10px;
+        }
+        .d-flex {
+            margin-top: 20px;
+        }
+        .alert {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container col-md-8">
+        <div class="table-container">
+            <center><h1 class="mb-3 alert">Records of Employee</h1></center>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="data : ${dataList}">
+                        <td th:text="${data.id}"></td>
+                        <td th:text="${data.name}"></td>
+                        <td th:text="${data.value}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex flex-row justify-content-around">
+                <button th:onclick="'window.location.href=\'' + @{/records/export/pdf} + '\''" class="btn btn-primary">Export to PDF</button>
+                <button th:onclick="'window.location.href=\'' + @{/records/export/excel} + '\''" class="btn btn-danger">Export to Excel</button>
+                <button th:onclick="'window.location.href=\'' + @{/records/export/csv} + '\''"  class="btn btn-primary">Export to CSV</button>
+            </div>
+            <center><button onclick="window.print()" class="btn btn-secondary">Print</button></center>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+IBX2VVt/TZU8zfg4k8INR44G1o7t" crossorigin="anonymous"></script>
+</body>
+</html>
